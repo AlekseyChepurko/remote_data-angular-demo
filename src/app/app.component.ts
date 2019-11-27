@@ -32,7 +32,7 @@ export class AppComponent implements OnDestroy, OnInit {
            .pipe(
              mapStream(success),
              mapStream(mapRd(JSON.stringify)),
-             catchError(()  => of(failure('wrong'))),
+             catchError((err)  => of(failure(err.message))),
              startWith(pending)
            )
      ),
