@@ -1,0 +1,8 @@
+<div>
+  <div *ngIf="remoteData$ | async as remoteData" [ngSwitch]="remoteData._tag">
+      <ng-container *ngSwitchCase="'RemoteInitial'">initial</ng-container>
+      <ng-container *ngSwitchCase="'RemotePending'">pending...</ng-container>
+      <ng-container *ngSwitchCase="'RemoteFailure'">{{remoteData.error}}</ng-container>
+      <ng-container *ngSwitchCase="'RemoteSuccess'">{{remoteData.value}}</ng-container>
+  </div>
+</div>
